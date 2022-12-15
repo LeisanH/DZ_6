@@ -1,21 +1,20 @@
-﻿/* Задача 41: Пользователь вводит с клавиатуры M чисел. 
-Посчитайте, сколько чисел больше 0 ввёл пользователь.
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3 */
+﻿/* Задача 43: Напишите программу, которая найдёт точку пересечения двух
+ прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
+ значения b1, k1, b2 и k2 задаются пользователем.
+b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5) */
 
-int n;
-Console.Write($"Введите количество чисел: ");
-int.TryParse(Console.ReadLine()!, out n);
+double b1 = 2;
+double k1 = 5;
 
-int[] array = new int[n];
+double b2 = 4;
+double k2 = 9;
 
-for (int i = 0; i < n; i++)
+if (k1 != k2)
 {
-    Console.Write($"[{i}]= ");
-    int.TryParse(Console.ReadLine()!, out array[i]);
+    double x = (b2 - b1) / (k1 - k2);
+    double y = k1 * x + b1;
+
+    Console.Write($"({x};{y})");
 }
-int k = 0;
-foreach (var i in array)
-    if (i > 0)
-        k++;
-Console.Write($"\n{k} чисел больше 0");
+else
+    Console.Write($"Данные две прямы паралельны");
